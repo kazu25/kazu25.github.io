@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>モノと情報の流れ図</title>
+  <meta name="description" content="モノと情報の流れ図（バリューストリームマップ）をブラウザで作成できるWebアプリ">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>モノと情報の流れ図</h1>
+    <div class="tools">
+      <button id="btn-new" title="新規作成">新規</button>
+      <button id="btn-sample" title="サンプルを読み込む">サンプル</button>
+      <span class="sep"></span>
+      <button id="btn-undo" title="元に戻す (Ctrl+Z)">↶</button>
+      <button id="btn-redo" title="やり直し (Ctrl+Y)">↷</button>
+      <span class="sep"></span>
+      <button id="btn-zoom-out" title="縮小">－</button>
+      <button id="btn-zoom-fit" title="全体表示">全体</button>
+      <button id="btn-zoom-in" title="拡大">＋</button>
+      <span class="sep"></span>
+      <button id="btn-export-png">PNG保存</button>
+      <button id="btn-export-svg">SVG保存</button>
+      <button id="btn-export-json">JSON保存</button>
+      <button id="btn-import-json">JSON読込</button>
+      <input type="file" id="file-input" accept=".json,application/json" hidden>
+    </div>
+  </header>
+
+  <div class="main">
+    <aside class="palette">
+      <h2>図形</h2>
+      <p class="hint">クリック、またはキャンバスへドラッグで追加</p>
+      <div id="node-palette" class="palette-grid"></div>
+
+      <h2>矢印の種類</h2>
+      <p class="hint">図形の青い点からドラッグして接続</p>
+      <div id="edge-palette" class="edge-list"></div>
+    </aside>
+
+    <section class="canvas-wrap" id="canvas-wrap">
+      <svg id="canvas" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="statusbar" id="statusbar"></div>
+    </section>
+
+    <aside class="props" id="props"></aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
